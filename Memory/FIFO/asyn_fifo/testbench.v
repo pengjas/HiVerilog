@@ -1,6 +1,6 @@
 `timescale 1ns/1ns
 
-module asyn_fifo_tb;
+module testbench();
 
   reg wclk, rclk, wrstn, rrstn, winc, rinc;
   reg [7:0] wdata;

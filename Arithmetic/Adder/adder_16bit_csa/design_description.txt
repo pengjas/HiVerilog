@@ -1,0 +1,18 @@
+Please act as a professional verilog designer.
+
+Implement a module of a 16-bit carry select adder in combinational logic.
+
+Module name:
+    carry_select_adder_16bit
+Input ports:
+    a[15:0]: 16-bit input operand A.
+    b[15:0]: 16-bit input operand B.
+    cin: Carry-in input.
+Output ports:
+    sum[15:0]: 16-bit output representing the sum of A and B.
+    cout: Carry-out output.
+
+Implementation:
+The carry_select_adder_16bit is built using a 4-bit ripple carry adder and several 4-bit carry select adder slices. The initial 4-bit section uses a ripple carry adder. Subsequent sections use carry select adder slices, which compute sums and carry-out bits based on the previous carry. Each 4-bit carry select adder slice includes two ripple carry adders and a multiplexer to select the appropriate sum and carry based on the carry-in.
+
+Give me the complete code.
