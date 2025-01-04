@@ -1,0 +1,16 @@
+Please act as a professional Verilog designer.
+
+Implement a module of a 32-bit multiplier using an array multiplier architecture.
+
+Module name:
+multiplier_32bit
+Input ports:
+A[31:0]: 32-bit input operand A.
+B[31:0]: 32-bit input operand B.
+Output ports:
+P[63:0]: 64-bit output representing the product of A and B.
+
+Implementation:
+The top module multiplier_32bit consists of several submodules, including a 64-bit adder for summing the partial products generated from the multiplication process.
+
+Give me the complete code.

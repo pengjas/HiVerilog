@@ -1,0 +1,17 @@
+Please act as a professional Verilog designer.
+
+Implement a module of a 64-bit subtractor that utilizes a hierarchical architecture consisting of submodules for modular design.
+
+Module name:  
+    subtractor_64bit               
+Input ports:
+    A[63:0]: 64-bit input operand A.
+    B[63:0]: 64-bit input operand B.
+Output ports:
+    D[63:0]: 64-bit output representing the difference A - B.
+    B_out: Borrow-out output.
+
+Implementation:
+The top module subtractor_64bit consists of two instances of the 32-bit subtractor module, which in turn consists of two instances of the 16-bit subtractor module, and each 16-bit subtractor contains two 8-bit subtractor modules.
+
+Give me the complete code.

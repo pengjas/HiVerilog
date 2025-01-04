@@ -1,0 +1,26 @@
+Please act as a professional Verilog designer.
+
+Implement a modular design for a serial input data accumulator. The system should receive 8-bit data inputs and accumulate the values. The valid_in signal will indicate when new data is ready for accumulation. After receiving four valid input data, the module should output the accumulated result and set valid_out to 1 for one cycle.
+
+Module name:
+accu_top
+
+Input ports:
+
+clk: Clock input for synchronization.
+rst_n: Active-low reset signal.
+data_in[7:0]: 8-bit input data for addition.
+valid_in: Input signal indicating readiness for new data.
+
+Output ports:
+
+valid_out: Output signal indicating when four input data accumulations have been reached.
+data_out[9:0]: 10-bit output data representing the accumulated sum.
+
+Implementation:
+The design consists of the following submodules:
+Counter Module: Counts the number of valid input data received. It resets after counting four inputs.
+Data Accumulator Module: Accumulates the four received data_in values and maintains the accumulated result.
+Valid Output Module: Generates the valid_out signal, which is set to 1 when four inputs have been accumulated.
+
+Give me the complete code.
