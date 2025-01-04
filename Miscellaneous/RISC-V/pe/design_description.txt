@@ -1,0 +1,26 @@
+Please act as a professional Verilog designer.
+
+Implement a modular Multiplying Accumulator for 32-bit integers. In the pe module, there are submodules for multiplication and accumulation. The pe module connects these submodules to perform the operations.
+
+Module name:
+pe
+
+Input ports:
+
+clk: Clock signal used for synchronous operations.
+rst: Reset signal. Defined as 1 for reset and 0 for reset signal inactive.
+a: 32-bit input operand A.
+b: 32-bit input operand B.
+Output ports:
+
+c: 32-bit output representing the accumulated result.
+Implementation:
+The module includes:
+
+Multiplier Submodule:
+This submodule takes two 32-bit inputs (a and b) and produces a 64-bit result of their multiplication.
+Accumulator Submodule:
+This submodule accumulates the lower 32 bits of the multiplication result into a register, current_value. It resets the value to 0 when rst is high and adds the new multiplication result during each clock cycle when rst is low.
+The main pe module connects these submodules and drives the output c with the accumulated result.
+
+Give me the complete code.
