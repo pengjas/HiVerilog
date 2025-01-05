@@ -1,20 +1,18 @@
-Please act as a professional verilog designer.
+Please act as a professional Verilog designer.
 
-Implement a module of a systolic array with 1x2 configuration in sequential logic.
+Implement a module of a systolic array with 2x2 configuration in sequential logic.
 
-Module name:  
-    systolic1x2               
+Module name:
+    systolic2x2
 Input ports:
     clk: Clock signal.
     rst: Reset signal, active high.
-    a0[15:0]: 16-bit input operand A0.
-    a1[15:0]: 16-bit input operand A1.
-    b0[15:0]: 16-bit input operand B0.
+    weight[0:1][0:1]: 16-bit input operand matrix for weights.
+    inputt[0:1][0:1]: 16-bit input operand array.
 Output ports:
-    c0[31:0]: 32-bit output representing the accumulated product of A0 and B0.
-    c1[31:0]: 32-bit output representing the accumulated product of A1 and the forwarded value of B0 (now B1).
+    outputt[0:1][0:1]: 32-bit output array representing the accumulated product of inputs and weights.
 
 Implementation:
-In the systolic1x2 module, two Processing Elements (PEs) are instantiated. Each PE performs multiplication and accumulation of its inputs. The first PE (pe0) takes inputs a0 and b0 directly. The second PE (pe1) takes input a1 and a delayed version of b0, named b1, which is updated with the value of b0 every clock cycle unless reset is active. This systolic passing of data (b0 to b1) among the PEs is crucial for pipelining in larger systolic array configurations.
+In the systolic2x2 module, four Processing Elements (PEs) are instantiated. Each PE performs multiplication and accumulation of its inputs. The PEs are connected in a 2x2 grid, where each PE receives corresponding elements from the input array and weight matrix. The output of each PE is stored in the output array. This configuration allows for efficient pipelining and parallel processing of data in a systolic array.
 
 Give me the complete code.

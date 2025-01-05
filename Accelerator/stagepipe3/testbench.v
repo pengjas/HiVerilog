@@ -8,7 +8,7 @@ wire [31:0] inst, result;
 reg [31:0] instr_mem[0:31];
 reg rst;
 
-verified_stagepipe3 dut (
+stagepipe3 dut (
   .clk(clk),
   .rst(rst),
   .instr_mem(instr_mem),
