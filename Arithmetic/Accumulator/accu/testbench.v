@@ -35,23 +35,28 @@ accu  uut (
 
 initial
 begin
-    #(PERIOD*1+0.01); 
+    #(PERIOD*(1-0.01)); 
     #(PERIOD)   data_in = 8'd1;valid_in = 1;
     #(PERIOD)   data_in = 8'd2;
     #(PERIOD)   data_in = 8'd3;
     #(PERIOD)   data_in = 8'd14;
 
-    #(PERIOD)   data_in = 8'd5;
+	#(3*PERIOD)  rst_n = 0;
+	#(PERIOD)   rst_n = 1;
+
+     data_in = 8'd5;
     #(PERIOD)   data_in = 8'd2;
     #(PERIOD)   data_in = 8'd103;
     #(PERIOD)   data_in = 8'd4;
 
-    #(PERIOD)   data_in = 8'd5;
+	#(3*PERIOD)   rst_n = 0;
+	#(PERIOD)   rst_n = 1;
+
+    		     data_in = 8'd5;
     #(PERIOD)   data_in = 8'd6;
     #(PERIOD)   data_in = 8'd3;
     #(PERIOD)   data_in = 8'd54;
     #(PERIOD*2);
-    $finish;
 end
 
 reg [9:0] result [0:2];
@@ -65,25 +70,38 @@ integer i;
 integer casenum = 0;
 integer error = 0;
 
-initial
-begin
-    for (i = 0; i < 15; i = i + 1) begin
-        #((PERIOD) * 1);         
-        if (valid_out) begin
+initial begin
+forever begin
+        @(posedge valid_out)
+			#(PERIOD/10);
             error = (data_out == result[casenum]) ? error : error + 1;
-            casenum = casenum + 1;
-        end        
-    end
-    if(error==0 && casenum==3)
-	begin
-		$display("===========Your Design Passed===========");
-        end
-	else
-	begin
-		$display("===========Error===========");
-	end
-    $finish;
+			if (data_out!=result[casenum]) begin
+				$display("errror case: case %d", casenum);
+				$display("data_out: %d", data_out);
+				$display("result:%d", result[casenum]);
+			end
+			casenum = casenum + 1;
+			if(error==0 && casenum==3)
+				begin
+					$display("===========Your Design Passed===========");
+					$finish();
+        		end
+			else if(casenum==3)
+				begin
+					$display("===========Error===========");
+					$finish();
+				end
+	#10;
 end
+end
+
+// initial begin
+// 	$fsdbDumpfile("./testresult/tb.fsdb");
+// 	$fsdbDumpvars(0,testbench);
+// 	$display("testbench");
+// 	#1000;
+// 	$finish();
+// end
 
 
 endmodule

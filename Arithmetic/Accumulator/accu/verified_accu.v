@@ -1,4 +1,4 @@
-`timescale 1ns/1ns
+`timescale 1ns/1ps
 
 module verified_accu (
     input               clk,
@@ -10,7 +10,7 @@ module verified_accu (
     output      [9:0]   data_out
 );
 
-    wire [1:0] count;
+    wire [2:0] count;
     wire add_cnt;
     wire end_cnt;
     wire ready_add;
@@ -31,6 +31,7 @@ module verified_accu (
         .rst_n(rst_n),
         .data_in(data_in),
         .add_cnt(add_cnt),
+		.count(count),
         .data_out(data_out_reg)
     );
 
@@ -43,8 +44,8 @@ module verified_accu (
     );
 
     assign add_cnt = ready_add;
-    assign end_cnt = ready_add && (count == 'd3);
-    assign ready_add = !valid_out | valid_in;
+    assign end_cnt = ready_add && (count == 'd4);
+    assign ready_add = valid_in;
     assign data_out = data_out_reg;
 
 endmodule
@@ -54,14 +55,14 @@ module counter (
     input               rst_n,
     input               add_cnt,
     input               end_cnt,
-    output reg [1:0]   count
+    output reg [2:0]   count
 );
 
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             count <= 0;
         end
-        else if (end_cnt) begin
+        else if (end_cnt||count=='d4) begin
             count <= 0;
         end
         else if (add_cnt) begin
@@ -76,6 +77,7 @@ module data_accumulator (
     input               rst_n,
     input       [7:0]   data_in,
     input               add_cnt,
+	input 		[2:0]  count,
     output reg [9:0]   data_out
 );
 
@@ -85,7 +87,7 @@ module data_accumulator (
         if (!rst_n) begin
             data_out_reg <= 0;
         end
-        else if (add_cnt && (data_out_reg == 0)) begin
+        else if (add_cnt && (count == 'd0)) begin
             data_out_reg <= data_in;
         end
         else if (add_cnt) begin
@@ -104,6 +106,7 @@ module data_accumulator (
 
 endmodule
 
+
 module valid_output (
     input               clk,
     input               rst_n,
@@ -115,12 +118,8 @@ module valid_output (
         if (!rst_n) begin
             valid_out <= 0;
         end
-        else if (end_cnt) begin
-            valid_out <= 1;
-        end
-        else begin
-            valid_out <= 0;
-        end
+        else 
+            valid_out <= end_cnt;
     end
 
 endmodule

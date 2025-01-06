@@ -1,2 +1,0 @@
-./accu.v
-./testbench.v
