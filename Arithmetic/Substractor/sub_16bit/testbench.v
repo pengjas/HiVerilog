@@ -1,43 +1,51 @@
-`timescale 1ns / 1ns
-module testbench();
+`timescale 1ns / 1ps
 
-    reg [16:1] A;
-    reg [16:1] B;
-    wire [16:1] D;
-    wire B_out;
+module testbench;
 
-    integer i; 
-    integer error = 0; 
-    reg [16:1] expected_difference; 
+  reg [15:0] A;          // Input A (64 bits)
+  reg [15:0] B;          // Input B (64 bits)
+  wire [15:0] result;    // Subtraction result (64 bits)
+  wire overflow;         // Overflow signal
+  integer i;             // Loop variable
+  integer error = 0;     // Error count for failed tests
 
-    // Instantiate the module
-    sub_16bit uut (
-        .A(A), 
-        .B(B), 
-        .D(D), 
-        .B_out(B_out)
-    );
+  // Instantiate the verified_sub_64bit module
+  sub_16bit uut (
+    .A(A),
+    .B(B),
+    .D(result),
+    .B_out(overflow)
+  );
 
-    // Randomize inputs and check output
-    initial begin
-        for (i = 0; i < 100; i = i + 1) begin
-            A = $random;
-            B = $random;
-            #10; 
-            // Calculate expected difference
-            expected_difference = A - B;
-            // Check if the output is as expected
-            if (D !== expected_difference || B_out !== (A < B)) begin
-                error = error + 1; 
-                $display("Error at A: %b, B: %b | Expected: D: %b, B_out: %b | Got: D: %b, B_out: %b", 
-                         A, B, expected_difference, (A < B), D, B_out);
-            end
-        end
-        if (error == 0) begin
-            $display("===========Your Design Passed===========");
-        end else begin
-            $display("===========Test completed with %d /100 failures===========", error);
+  // Randomize inputs and check output
+  initial begin
+    for (i = 0; i < 100; i = i + 1) begin
+        // Generate random 64-bit inputs
+        A = $random;
+        B = $random;
+
+        // Wait for the operation to complete
+        #10;
+
+        // Calculate expected result using system task
+        // $monitor("A = %d, B = %d, Expected Result = %d, Overflow = %b", A, B, A - B, overflow);
+
+        // Check the result of the subtraction
+        if (result !== (A - B) || (A - B < 0 && overflow !== 1)) begin
+            error = error + 1;
+            $display("Test failed: A = %d, B = %d, Expected Result = %d, Got = %d, Overflow = %b", A, B, A - B, result, overflow);
         end
     end
+
+    // Final test result summary
+    if (error == 0) begin
+      $display("=========== Your Design Passed ===========");
+    end
+    else begin
+      $display("=========== Test completed with %d /100 failures ===========", error);
+    end
+
+    $finish;
+  end
 
 endmodule

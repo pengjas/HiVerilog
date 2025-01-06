@@ -16,7 +16,7 @@ module testbench();
     reg [N-1:0] expected_result;
 
     // Instantiate the fixed point subtractor module
-    fixed_point_subtractor #(.Q(Q), .N(N)) uut (
+    fixed_point_substractor #(.Q(Q), .N(N)) uut (
         .a(a),
         .b(b),
         .c(c)
@@ -24,7 +24,8 @@ module testbench();
 
     // Initial values for inputs
     initial begin
-        // Test 100 random cases
+
+
         for (integer i = 0; i < 100; i = i + 1) begin
             // Generate random N-bit inputs
             a = $random % (1 << N);
@@ -35,11 +36,9 @@ module testbench();
 
             // Calculate expected results
             if (a[N-1] == b[N-1]) begin
-                // Same sign subtraction
                 expected_result = a - b;
             end
             else if (a[N-1] == 0 && b[N-1] == 1) begin
-                // a positive, b negative
                 if (a[N-2:0] > b[N-2:0]) begin
                     expected_result = a + b;
                 end
@@ -48,7 +47,6 @@ module testbench();
                 end
             end
             else begin
-                // a negative, b positive
                 if (a[N-2:0] > b[N-2:0]) begin
                     expected_result = a - b;
                 end
@@ -57,7 +55,6 @@ module testbench();
                 end
             end
 
-            // Check if the output matches the expected result
             if (c !== expected_result) begin
                 error = error + 1;
                 $display("Test failed: a = %b, b = %b, c = %b, expected_result = %b", a, b, c, expected_result);

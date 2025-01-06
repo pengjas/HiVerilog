@@ -1,4 +1,4 @@
-module ring_counter (
+module verified_ring_counter (
     input wire clk,
     input wire reset,
     output wire [7:0] out

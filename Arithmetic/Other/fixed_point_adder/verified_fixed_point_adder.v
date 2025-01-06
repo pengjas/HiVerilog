@@ -1,10 +1,10 @@
-module fixed_point_adder #(
+module verified_fixed_point_adder #(
     parameter Q = 15,
     parameter N = 32
 )(
     input [N-1:0] a,
     input [N-1:0] b,
-    output [N-1:0] c
+    output reg [N-1:0] c
 );
 
 wire [N-1:0] add_res;

@@ -1,4 +1,4 @@
-module testbench();
+module testbench;
 
     reg clk;
     reg reset;
@@ -14,49 +14,40 @@ module testbench();
     );
 
     integer error = 0;
-    
-    // Generate clock signal
     always begin
-        #5 clk = ~clk;
+        #5 clk <= ~clk;
     end
 
-    // Initial block for setup
+    // Initial 
     initial begin
         clk = 0;
         reset = 1;
         up_down = 1; 
-        #10 reset = 0; // Release reset
+        #10 reset = 0;
     end
+
+    // Monitor for displaying count
+    // always @(posedge clk) begin
+    //     $display("Count = %d", count);
+    // end
 
     // Test counting up
     initial begin
-        #20 up_down = 1; // Start counting up
+        #20 up_down = 1;
         #100 up_down = 0; // Switch to counting down
-        #100 up_down = 1; // Switch back to counting up
-        #100 up_down = 0; // Switch to counting down again
-        #200;
-        
-        // Error checking for expected values
-        if (count != 16'b1111_1111_1111_1111) begin
-            error = error + 1; // Check if the count is 65535 after overflow
-        end
-
-        #10 reset = 1; // Reset the counter
-        #10 reset = 0; // Release reset
-
-        #20 up_down = 1; // Count up again
-        #100; // Allow time for counting
-
-        // Final error checking
-        if (count != 16'b0000_0000_0000_0000) begin
-            error = error + 1; // Check if the count is 0 after reset
-        end
-
-        // Display results
+        // $display("Count = %d", count);
+        error = (count==11)?error : error+1;
+        #200 up_down = 1; // Switch back to counting up
+        // $display("Count = %d", count);
+        error = (count==65527)?error : error+1;
+        #300 ;
+        // $display("Count = %d", count);
+        error = (count==21)?error : error+1;
         if (error == 0) begin
-            $display("=========== Your Design Passed ===========");
-        end else begin
-            $display("=========== Test completed with %d failures ===========", error);
+        $display("=========== Your Design Passed ===========");
+        end
+        else begin
+        $display("=========== Test completed with %d failures ===========", error);
         end
 
         $finish;

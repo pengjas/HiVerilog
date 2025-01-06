@@ -30,8 +30,8 @@ module testbench();
         d = 1; // Input data
         #10;   // Wait for a clock edge
         // Check the expected output
-        expected_q = 3'b001; // After one clock cycle, q should be '1'.
-        #10; // Wait for the next clock edge
+        expected_q = 3'b100; // After one clock cycle, q should be '0'.
+        // #10; // Wait for the next clock edge
         if (q !== expected_q[0]) begin
             error = error + 1; 
             $display("Failed at test case 1: clk=%d, q=%b (expected %d)", clk, q, expected_q[0]);
@@ -41,7 +41,7 @@ module testbench();
         d = 0; // Input data
         #10;  // Wait for a clock edge
         expected_q = {1'b0, expected_q[2:1]}; // Shift '1' out, expect '0' in the least significant bit
-        #10; // Wait for the next clock edge
+        // #10; // Wait for the next clock edge
         if (q !== expected_q[0]) begin
             error = error + 1; 
             $display("Failed at test case 2: clk=%d, q=%b (expected %d)", clk, q, expected_q[0]);
@@ -51,7 +51,7 @@ module testbench();
         d = 1; // Input data
         #10;  // Wait for a clock edge
         expected_q = {1'b1, expected_q[2:1]}; // Shift '0' out, expect '1' in the least significant bit
-        #10; // Wait for the next clock edge
+        // #10; // Wait for the next clock edge
         if (q !== expected_q[0]) begin
             error = error + 1; 
             $display("Failed at test case 3: clk=%d, q=%b (expected %d)", clk, q, expected_q[0]);

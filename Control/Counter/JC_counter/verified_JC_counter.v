@@ -1,7 +1,7 @@
 `timescale 1ns/1ns
 
 // Main module for the Johnson Counter
-module JC_counter(
+module verified_JC_counter(
     input                clk,
     input                rst_n,
     output [63:0]       Q

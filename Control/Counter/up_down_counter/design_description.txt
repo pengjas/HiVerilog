@@ -1,19 +1,19 @@
 Please act as a professional Verilog designer.
 
 Module name:
-up_down_counter
+    up_down_counter
 
 Function:
 A 16-bit counter that can increment or decrement based on control signals, implemented in a modular fashion.
 
 Input ports:
-- clk: Clock signal (1-bit), used to synchronize the counting process.
-- reset: Reset signal (1-bit), used to reset the counter to zero.
-- up_down: Control signal (1-bit), determines the counting direction.
-If up_down = 1, the counter increments; if up_down = 0, it decrements.
+    - clk: Clock signal (1-bit), used to synchronize the counting process.
+    - reset: Reset signal (1-bit), used to reset the counter to zero.
+    - up_down: Control signal (1-bit), determines the counting direction.
+    If up_down = 1, the counter increments; if up_down = 0, it decrements.
 
 Output ports:
-- count [15:0]: 16-bit output representing the current counter value.
+    - count [15:0]: 16-bit output representing the current counter value.
 
 Implementation:
 The module consists of two submodules: counter_logic and counter_register.

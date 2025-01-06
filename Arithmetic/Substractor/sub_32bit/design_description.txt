@@ -3,15 +3,15 @@ Please act as a professional Verilog designer.
 Implement a module of a 32-bit subtractor that uses a modular architecture.
 
 Module name:
-sub_32bit
+    sub_32bit
 
 Input ports:
-A[31:0]: 32-bit input operand A.
-B[31:0]: 32-bit input operand B.
+    A[31:0]: 32-bit input operand A.
+    B[31:0]: 32-bit input operand B.
 
 Output ports:
-Diff[31:0]: 32-bit output representing the difference of A and B.
-B_out: Borrow-out output.
+    Diff[31:0]: 32-bit output representing the difference of A and B.
+    B_out: Borrow-out output.
 
 Implementation:
 The top module sub_32bit consists of two instances of a 16-bit subtractor block you design.

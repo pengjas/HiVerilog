@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module testbench;
+module testbench();
     // Parameters
     parameter Q = 15;
     parameter N = 32;
@@ -22,13 +22,11 @@ module testbench;
 
     initial begin    
         for (integer i = 0; i < 100; i = i + 1) begin
-            // Generate random inputs
             a = $random % (1 << N);
             b = $random % (1 << N);
 
             #10;
 
-            // Determine the expected result based on input signs
             if ((a[N-1] == b[N-1]) || (a[N-1] == 0 && b[N-1] == 1 && a[N-2:0] >= b[N-2:0]) || (a[N-1] == 1 && b[N-1] == 0 && a[N-2:0] < b[N-2:0])) begin
                 expected_result = a + b;
             end
@@ -39,7 +37,6 @@ module testbench;
                 expected_result = a - b;
             end
 
-            // Check if the output matches the expected result
             if (c !== expected_result) begin
                 error = error + 1;
                 $display("Test failed: a = %b, b = %b, c = %b, expected_result = %b", a, b, c, expected_result);
@@ -51,7 +48,7 @@ module testbench;
             $display("=========== Your Design Passed ===========");
         end
         else begin
-            $display("=========== Test completed with %d / 100 failures ===========", error);
+            $display("=========== Test completed with %d /100 failures ===========", error);
         end
 
         // End simulation

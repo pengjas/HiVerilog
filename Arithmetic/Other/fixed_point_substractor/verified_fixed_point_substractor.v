@@ -1,4 +1,4 @@
-module fixed_point_subtractor #(
+module verified_fixed_point_substractor #(
     parameter Q = 15,
     parameter N = 32
 )

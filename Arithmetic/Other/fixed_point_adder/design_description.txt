@@ -3,36 +3,35 @@ Please act as a professional Verilog designer.
 Implement a parameterized modular fixed-point adder for arithmetic operations with fixed precision.
 
 Module name:
-fixed_point_adder
+    fixed_point_adder
 Input parameters:
-Q: Number of fractional bits (precision).
-N: Total number of bits, including integer and fractional parts.
+    Q: Number of fractional bits (precision).
+    N: Total number of bits, including integer and fractional parts.
 Input ports:
-a [N-1:0]: First N-bit fixed-point input operand.
-b [N-1:0]: Second N-bit fixed-point input operand.
+    a [N-1:0]: First N-bit fixed-point input operand.
+    b [N-1:0]: Second N-bit fixed-point input operand.
 Output ports:
-c [N-1:0]: N-bit output representing the result of the fixed-point addition.
+    c [N-1:0]: N-bit output representing the result of the fixed-point addition.
 
 Submodules:
-
 fixed_point_adder_add
 Responsible for adding two fixed-point operands.
 Input ports:
-a [N-1:0]: First N-bit fixed-point input operand.
-b [N-1:0]: Second N-bit fixed-point input operand.
+    a [N-1:0]: First N-bit fixed-point input operand.
+    b [N-1:0]: Second N-bit fixed-point input operand.
 Output ports:
-result [N-1:0]: N-bit output representing the sum.
-result_sign: Sign bit indicating the sign of the result.
+    result [N-1:0]: N-bit output representing the sum.
+    result_sign: Sign bit indicating the sign of the result.
 fixed_point_adder_sub
 Responsible for subtracting two fixed-point operands.
 Input ports:
-a [N-1:0]: First N-bit fixed-point input operand.
-b [N-1:0]: Second N-bit fixed-point input operand.
+    a [N-1:0]: First N-bit fixed-point input operand.
+    b [N-1:0]: Second N-bit fixed-point input operand.
 Output ports:
-result [N-1:0]: N-bit output representing the difference.
-result_sign: Sign bit indicating the sign of the result.
+    result [N-1:0]: N-bit output representing the difference.
+    result_sign: Sign bit indicating the sign of the result.
+    
 Implementation:
-
 Addition Logic:
 If both inputs have the same sign, their absolute values are added.
 The sign of the result matches the inputs.

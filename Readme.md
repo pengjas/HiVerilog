@@ -53,21 +53,14 @@
 >Miscellaneous\Signal generation\signal_generator  
 >Miscellaneous\Frequency divider\freq_divbyeven  
 >Miscellaneous\Frequency divider\freq_divbyfrac  
+>Control\Counter\counter_12  
+>Control\Counter\JC_counter  
+>Arithmetic\Substractor\sub_64bit  
+>Arithmetic\Substractor\sub_32bit  
+>Arithmetic\Other\float_multi  
 > 
 
 
-Arithmetic\Other\fixed_point_adder  
-Arithmetic\Other\fixed_point_substractor  
-Arithmetic\Other\float_multi  
-Arithmetic\Substractor\sub_16bit  
-Arithmetic\Substractor\sub_32bit  
-Arithmetic\Substractor\sub_64bit  
-Arithmetic\Substractor\sub_8bit  
-Control\Counter\counter_12  
-Control\Counter\JC_counter  
-Control\Counter\ring_counter  
-Control\Counter\up_down_counter  
-Memory\Shifter\shift_reg  
 
 
 ~~Accelerator\systolic1x2~~  
@@ -91,3 +84,10 @@ Memory\Shifter\shift_reg
 ~~Miscellaneous\Frequency divider\freq_div~~(GPT-generated source code is correct)  
 ~~Miscellaneous\Frequency divider\freq_divbyodd~~(GPT-generated source code is correct)    
 ~~Memory\Shifter\shift8~~(Task from VerilogEval)  
+~~Memory\Shifter\shift_reg~~(Task from VerilogEval)  
+~~Control\Counter\ring_counter~~(GPT-generated source code is correct)  
+~~Control\Counter\up_down_counter~~(GPT-generated source code is correct)  
+~~Arithmetic\Substractor\sub_8bit~~(GPT-generated source code is correct)  
+~~Arithmetic\Substractor\sub_16bit~~(GPT-generated source code is correct)  
+~~Arithmetic\Other\fixed_point_adder~~(GPT-generated source code is correct)  
+~~Arithmetic\Other\fixed_point_substractor~~(GPT-generated source code is correct)  
