@@ -1,4 +1,4 @@
-module freq_divbyeven(
+module verified_freq_divbyeven(
     input clk,
     input rst_n,
     output clk_div

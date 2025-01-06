@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module test_modular_alu();
+module testbench();
 
     reg [31:0] a;
     reg [31:0] b;
@@ -13,7 +13,7 @@ module test_modular_alu();
     wire flag;
     reg [4:0] cnt;
 
-    modular_alu uut(a, b, aluc, r, zero, carry, negative, overflow, flag);
+    alu uut(a, b, aluc, r, zero, carry, negative, overflow, flag);
 
     parameter ADD = 6'b100000;
     parameter ADDU = 6'b100001;

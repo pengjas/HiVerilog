@@ -3,14 +3,14 @@ Please act as a professional Verilog designer.
 You are to design a shift register module that utilizes three instances of a D flip-flop. The shift register should shift the input data through each flip-flop on the rising edge of the clock.
 
 Module name:
-shift_reg
+    shift_reg
 
 Input ports:
-clk: Clock signal for synchronization.
-d: Data input to be shifted through the register.
+    clk: Clock signal for synchronization.
+    d: Data input to be shifted through the register.
 
 Output ports:
-q: The output from the last flip-flop in the chain.
+    q: The output from the last flip-flop in the chain.
 
 Implementation:
 The shift register consists of three instances of the provided D flip-flop module (my_dff).

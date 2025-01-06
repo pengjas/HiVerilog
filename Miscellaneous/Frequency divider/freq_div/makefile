@@ -6,7 +6,7 @@ vcs:
 		vcs -sverilog +v2k -timescale=1ns/1ns       \
 		-debug_all         							\
 		-l compile.log 								\
-		/home/coguest/luyao/SmallDesigns/chatgpt35/t5/freq_div.v testbench.v
+		${TEST_DESIGN}.v testbench.v
 
 sim:
 		./simv -l run.log

@@ -3,15 +3,15 @@ Please act as a professional Verilog designer.
 A top-level module designed to instantiate three 8-bit D flip-flops (my_dff8) and connect them to create an 8-bit wide shift register of length 3. Additionally, implement a 4-to-1 multiplexer that selects the output based on a 2-bit select signal (sel), which determines the delay of the input signal (d) through the shift register.
 
 Module name:
-top_module
+    shift8
 
 Input ports:
-clk: Clock signal for synchronization.
-d [7:0]: 8-bit data input to be shifted through the register.
-sel [1:0]: Control signal that selects which output to present (0-3 cycles of delay).
+    clk: Clock signal for synchronization.
+    d [7:0]: 8-bit data input to be shifted through the register.
+    sel [1:0]: Control signal that selects which output to present (0-3 cycles of delay).
 
 Output ports:
-q [7:0]: The output data after the selected number of clock cycles.
+    q [7:0]: The output data after the selected number of clock cycles.
 
 Implementation:
 The top_module consists of three instances of my_dff8, each representing a D flip-flop. The output of each flip-flop is connected to the next one, creating a chain that allows the input data to be shifted through the register.

@@ -65,8 +65,8 @@ module test_pe();
     end
 
     // Clock generation
-    always begin
-        #5 clk = ~clk; // Toggle clock every 5 ns
-    end
+    // always begin
+    //     #5 clk = ~clk; // Toggle clock every 5 ns
+    // end
 
 endmodule

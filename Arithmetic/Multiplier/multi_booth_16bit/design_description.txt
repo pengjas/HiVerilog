@@ -3,21 +3,20 @@ Please act as a professional Verilog designer.
 Implement a 16-bit Radix-4 Booth multiplier that performs the multiplication of two 16-bit inputs (a and b) using the Booth algorithm. It utilizes a clock signal (clk) and a reset signal (reset), and provides the product output (p) and a ready signal (rdy). The ready signal (rdy) is set to 1 to indicate the completion of the multiplication process.
 
 Module name:
-multi_booth_16bit
+    multi_booth_16bit
 
 Input ports:
+    clk: Clock signal used for synchronous operation.
+    reset: Reset signal used to initialize the multiplier module.
+    a: 16-bit input representing the multiplicand.
+    b: 16-bit input representing the multiplier.
 
-clk: Clock signal used for synchronous operation.
-reset: Reset signal used to initialize the multiplier module.
-a: 16-bit input representing the multiplicand.
-b: 16-bit input representing the multiplier.
 Output ports:
+    p: 32-bit output representing the product of the multiplication.
+    rdy: Ready signal indicating the completion of the multiplication operation.
 
-p: 32-bit output representing the product of the multiplication.
-rdy: Ready signal indicating the completion of the multiplication operation.
 Implementation:
 On the positive edge of the clock signal (clk) or the positive edge of the reset signal (reset), the module performs the multiplication process.
-
 If the reset signal (reset) is high, the module initializes the multiplicand and multiplier registers, sign-extending the inputs.
 If the reset signal (reset) is low, indicating normal operation, the counter (5-bit ctr) is checked.
 If the counter (ctr) is less than 16, the module checks the current bit of the multiplier register (multiplier[ctr]).

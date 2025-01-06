@@ -3,21 +3,20 @@ Please act as a professional Verilog designer.
 Implement a module of an unsigned 16-bit multiplier using submodules. The multiplier should utilize shift-and-accumulate operations to generate the product output (yout). The module must include control signals such as clock (clk), reset (rst_n), and start (start), along with a completion flag (done) indicating the completion of the multiplication operation.
 
 Module name:
-multi_16bit
+    multi_16bit
 
 Input ports:
+    clk: Chip clock signal.
+    rst_n: Active-low reset signal. Defined as 0 for chip reset and 1 for reset signal inactive.
+    start: Chip enable signal to initiate the multiplication operation.
+    ain: Input signal representing the multiplicand (a) with a data width of 16 bits.
+    bin: Input signal representing the multiplier (b) with a data width of 16 bits.
 
-clk: Chip clock signal.
-rst_n: Active-low reset signal. Defined as 0 for chip reset and 1 for reset signal inactive.
-start: Chip enable signal to initiate the multiplication operation.
-ain: Input signal representing the multiplicand (a) with a data width of 16 bits.
-bin: Input signal representing the multiplier (b) with a data width of 16 bits.
 Output ports:
+    yout: Product output signal with a data width of 32 bits.
+    done: Chip output flag signal. Defined as 1 indicates the completion of the multiplication operation.
 
-yout: Product output signal with a data width of 32 bits.
-done: Chip output flag signal. Defined as 1 indicates the completion of the multiplication operation.
 Implementation:
-
 Control Unit: This submodule manages the shift count register and the completion flag. It updates the shift count on each positive clock edge or reset signal, handling the start and reset conditions accordingly.
 Register Unit: This submodule stores the multiplicand and multiplier. It initializes these registers on reset and loads them with input values when the multiplication operation starts.
 Multiplier Unit: This submodule implements the shift-and-accumulate logic. On each clock cycle, it checks the appropriate bit of the multiplicand and updates the product register by accumulating the shifted multiplier.

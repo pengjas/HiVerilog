@@ -3,15 +3,15 @@ Please act as a professional Verilog designer.
 Implement a 32-bit divider module where the dividend is 32 bits and the divisor is 16 bits using a modular design approach. The module should be composed of submodules to enhance clarity and maintainability. The first submodule will prepare the dividend and divisor by adjusting their bit widths. The second submodule will perform the division operation by shifting the dividend and comparing it with the divisor to compute the quotient and remainder.
 
 Module name:
-div_32bit
+    div_32bit
 
 Input ports:
-A: 32-bit dividend.
-B: 16-bit divisor.
+    A: 32-bit dividend.
+    B: 16-bit divisor.
 
 Output ports:
-result: 32-bit quotient.
-odd: 32-bit remainder.
+    result: 32-bit quotient.
+    odd: 32-bit remainder.
 
 Implementation:
 The top module (div_32bit) instantiates two submodules: prep_dividend and div_operation. The prep_dividend module prepares the inputs, while the div_operation module handles the division algorithm. The output signals are assigned from the results of the division operation.

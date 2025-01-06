@@ -1,4 +1,4 @@
-module freq_divbyfrac(
+module verified_freq_divbyfrac(
     input               clk,
     input               rst_n,
     output              clk_div

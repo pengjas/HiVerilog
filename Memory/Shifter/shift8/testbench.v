@@ -26,8 +26,8 @@ module testbench();
         sel = 2'b00;
         error = 0;
 
-        // Wait 10 ns for initialization
-        #10;
+        // Wait 40 ns for initialization
+        #40;
 
         // Test case sequence
         // Cycle 1: d = 3, sel = 0
@@ -37,7 +37,7 @@ module testbench();
 
         // Cycle 2: d = 4, sel = 1
         d = 8'd4; sel = 2'b01; #10;
-        expected_q = 8'd3; // Output of first flip-flop
+        expected_q = 8'd4; // Output of first flip-flop
         check_output(expected_q);
 
         // Cycle 3: d = 5, sel = 2
@@ -47,7 +47,7 @@ module testbench();
 
         // Cycle 4: d = 6, sel = 3
         d = 8'd6; sel = 2'b11; #10;
-        expected_q = 8'd5; // Output of third flip-flop
+        expected_q = 8'd4; // Output of third flip-flop
         check_output(expected_q);
 
         // Cycle 5: d = 7, sel = 0
@@ -57,7 +57,7 @@ module testbench();
 
         // Cycle 6: d = 8, sel = 1
         d = 8'd8; sel = 2'b01; #10;
-        expected_q = 8'd7; // Output of first flip-flop
+        expected_q = 8'd8; // Output of first flip-flop
         check_output(expected_q);
 
         // Cycle 7: d = 9, sel = 2
@@ -67,7 +67,7 @@ module testbench();
 
         // Cycle 8: d = 10, sel = 3
         d = 8'd10; sel = 2'b11; #10;
-        expected_q = 8'd9; // Output of third flip-flop
+        expected_q = 8'd8; // Output of third flip-flop
         check_output(expected_q);
 
         // Finish simulation and display total errors

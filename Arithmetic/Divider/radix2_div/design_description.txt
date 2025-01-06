@@ -17,17 +17,22 @@ Output Ports:
 
 res_valid: 1-bit output signal indicating the result is valid and ready.
 result: 16-bit output containing the remainder in the upper 8 bits and the quotient in the lower 8 bits.
+
 Implementation:
 
 Module Structure:
 The design is composed of several submodules to enhance modularity and maintainability.
 Each submodule handles specific tasks: calculating absolute values, negating the divisor, controlling the division process, and managing result validity.
+
 Absolute Value Calculation:
 The abs_value module computes the absolute value of the dividend based on the sign input.
+
 Negative Divisor Calculation:
 The neg_value module computes the negated absolute value of the divisor based on the sign input.
+
 Division Control Logic:
 The divider_control module manages the division process, incrementing a counter, updating a shift register, and determining when the division is complete.
+
 Result Management:
 The result_management module handles the validity of the output result based on the state of the counter and reset signal.
 

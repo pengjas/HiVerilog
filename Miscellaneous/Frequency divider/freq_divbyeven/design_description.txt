@@ -3,27 +3,24 @@ Please act as a professional Verilog designer.
 Create a modular frequency divider that divides the input clock frequency by even numbers. This module generates a divided clock signal by toggling its output every specified number of input clock cycles.
 
 Module name:
-freq_divbyeven
+    freq_divbyeven
 
 Input ports:
+    clk: Input clock signal that will be divided.
+    rst_n: Active-low reset signal to initialize the module.
 
-clk: Input clock signal that will be divided.
-rst_n: Active-low reset signal to initialize the module.
 Output ports:
+    clk_div: Divided clock output signal.
 
-clk_div: Divided clock output signal.
 Implementation:
 The frequency divider consists of two submodules: a counter and a clock divider. The NUM_DIV parameter specifies the division factor, which must be an even number.
-
 The counter submodule counts the number of clock cycles. When the reset signal (rst_n) is low, the counter initializes to zero.
 The counter increments until it reaches half of NUM_DIV - 1.
 When the counter reaches this limit, it resets to zero.
 The clock divider submodule toggles the clk_div output signal whenever the counter resets, effectively dividing the frequency of the input clock by the even number specified by NUM_DIV.
 Counter:
-
 The counter is a 4-bit register that tracks the number of clock cycles.
 Submodules:
-
 Counter Submodule: Responsible for counting clock cycles.
 Clock Divider Submodule: Responsible for toggling the divided clock output.
 

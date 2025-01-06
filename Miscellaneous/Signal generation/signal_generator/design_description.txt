@@ -3,15 +3,15 @@ Please act as a professional Verilog designer.
 Implement a Triangle Wave signal generator module that generates a waveform by incrementing and decrementing a 5-bit signal named wave. The waveform cycles between 0 and 31, which is incremented or decremented by 1.
 
 Module name:
-signal_generator
+    signal_generator
 
 Input ports:
+    clk: Clock signal used for synchronous operation.
+    rst_n: Active-low reset signal. Defined as 0 for reset and 1 for reset signal inactive.
 
-clk: Clock signal used for synchronous operation.
-rst_n: Active-low reset signal. Defined as 0 for reset and 1 for reset signal inactive.
 Output ports:
-
-wave: 5-bit output waveform signal representing the generated waveform.
+    wave: 5-bit output waveform signal representing the generated waveform.
+    
 Implementation:
 The module is divided into two submodules: a state control module and a waveform generation module.
 

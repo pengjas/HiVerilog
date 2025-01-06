@@ -3,22 +3,21 @@ Please act as a professional Verilog designer.
 Implement the design of an unsigned 16-bit multiplier based on pipelining processing. It utilizes a clock signal (clk), an active-low reset signal (rst_n), an input enable signal (mul_en_in), and provides an output enable signal (mul_en_out) and the product output (mul_out) of size 32 bits.
 
 Module name:
-multi_pipe_16bit
+    multi_pipe_16bit
 
 Input ports:
+    clk: Clock signal used for synchronous operation.
+    rst_n: Active-low reset signal. Defined as 0 for chip reset and 1 for reset signal inactive.
+    mul_en_in: Input enable signal that controls the multiplication operation.
+    mul_a: Input signal representing the multiplicand with a data width of 16 bits.
+    mul_b: Input signal representing the multiplier with a data width of 16 bits.
 
-clk: Clock signal used for synchronous operation.
-rst_n: Active-low reset signal. Defined as 0 for chip reset and 1 for reset signal inactive.
-mul_en_in: Input enable signal that controls the multiplication operation.
-mul_a: Input signal representing the multiplicand with a data width of 16 bits.
-mul_b: Input signal representing the multiplier with a data width of 16 bits.
 Output ports:
+    mul_en_out: Output enable signal indicating if the multiplication operation is enabled.
+    mul_out: Product output signal with a data width of 32 bits.
 
-mul_en_out: Output enable signal indicating if the multiplication operation is enabled.
-mul_out: Product output signal with a data width of 32 bits.
 Implementation:
 The module utilizes a pipeline architecture to improve performance and is divided into submodules:
-
 Input Control Module:
 This module manages the input enable signal (mul_en_in) and outputs an enable signal (mul_en_out) indicating whether the multiplication operation is active.
 Input Registers:
