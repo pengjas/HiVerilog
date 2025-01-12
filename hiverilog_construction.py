@@ -10,6 +10,7 @@ def jsonl_to_dict(jsonl_file):
             task_id = entry['task_id']
             graph = entry['graph']
             graph = graph.replace('\'', '\"')  # 将单引号替换为双引号
+            graph = graph.replace('False', 'false')  # 将 True 替换为 true
             graph = json.loads(graph)
             # 只取需要的键
             filtered_graph = {key: graph[key] for key in ['nodes', 'edge_attrs', 'connectivity'] if key in graph}
