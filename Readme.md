@@ -65,9 +65,6 @@
 
 ~~Accelerator\systolic1x2~~  
 ~~Accelerator\systolic1x4~~  
-~~Accelerator\systolic2x2~~  
-~~Accelerator\systolic4x4~~ 
-~~Memory\FIFO\asyn_fifo~~  
 ~~Arithmetic\Adder\adder_16bit~~  
 ~~Arithmetic\Adder\adder_32bit~~  
 ~~Arithmetic\Adder\adder_8bit~~  
@@ -89,5 +86,10 @@
 ~~Control\Counter\up_down_counter~~(GPT-generated source code is correct)  
 ~~Arithmetic\Substractor\sub_8bit~~(GPT-generated source code is correct)  
 ~~Arithmetic\Substractor\sub_16bit~~(GPT-generated source code is correct)  
-~~Arithmetic\Other\fixed_point_adder~~(GPT-generated source code is correct)  
-~~Arithmetic\Other\fixed_point_substractor~~(GPT-generated source code is correct)  
+
+
+~~Arithmetic\Other\fixed_point_adder(GPT-generated source code is correct)(no graph json)  
+~~Arithmetic\Other\fixed_point_substractor(GPT-generated source code is correct)(no graph json)  
+~~Accelerator\systolic2x2(no graph json)  
+~~Accelerator\systolic4x4(no graph json)  
+~~Memory\FIFO\asyn_fifo(no graph json)  
