@@ -68,7 +68,7 @@
 ~~Arithmetic\Adder\adder_16bit~~  
 ~~Arithmetic\Adder\adder_32bit~~  
 ~~Arithmetic\Adder\adder_8bit~~  
-~~Memory\Shifter\barrel_shifter~~  
+~~Memory\Shifter\barrel_shifter~~ $\dagger$$\Re$$\spadesuit$  
 ~~Accelerator\stagepipe3~~  
 ~~Accelerator\stagepipe5~~   
 ~~Arithmetic\Comparator\comparator_32bit~~(GPT-generated source code is correct)  
