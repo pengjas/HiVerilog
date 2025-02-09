@@ -315,7 +315,7 @@ test_one_file() {
 
 
 # File containing the tasks
-TASK_FILE="tasks_verilogeval_RTLLM.txt" # TODO
+TASK_FILE="tasks_hiverilog.txt" # TODO
 
 # Check if the file exists
 if [[ ! -f $TASK_FILE ]]; then
@@ -345,13 +345,13 @@ for key in "${!filtered_dic[@]}"; do
     echo "[$key]=${filtered_dic[$key]}"
 done
 
-path="/data/YYY/LLM-verilog/rtllm_result" # TODO
+path="D:\icrg\code\LLM_multi_modal\ICML_2025\GraphCoder\HiVerilog_eval_generated_code\fine_tune_havenllama_using_rtlcoder_gpt4_unfreeze_gnn_projector_with_lora\v0_best_ckpt_separate_lr_gnn8e3_projector3e4_lora3e5_batch2_epoch5" # TODO
 
-benchmark_name="RTLLM" # TODO
+benchmark_name="D:\icrg\code\LLM_multi_modal\ICML_2025\HiVerilog\HiVerilog\test_on_benchmark\testbench\HiVerilog" # TODO
 file_id=1
 n=0
 
-files_to_run=5 # TODO
+files_to_run=2 # TODO
 
 # three arguments are file of code to test, benchmark name, and filtered_dic
 while ((n < files_to_run)); do

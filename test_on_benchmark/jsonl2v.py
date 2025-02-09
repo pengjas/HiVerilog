@@ -42,7 +42,11 @@ def prepend_verilog_module(verilog_code: str, current_folder: str, task_id: str)
             if os.path.isfile(task_id_file):
                 with open(task_id_file, 'r') as file:
                     task_id_content = file.read()
-                task_id_content = find_module_string(task_id_content) + '\n'
+                module_head = find_module_string(task_id_content)
+                if "verified_" in module_head:
+                    # 去除 "verified_" 部分
+                    module_head = module_head.replace("verified_", "")
+                task_id_content = module_head + '\n'
                 # 将内容填到verilog_code的开头
                 return task_id_content + verilog_code
 
