@@ -1,5 +1,6 @@
 import os
 import shutil
+import glob
 
 # 定义路径
 source_path = r"D:\icrg\code\LLM_multi_modal\ICML_2025\HiVerilog\HiVerilog"
@@ -15,7 +16,9 @@ for root, dirs, files in os.walk(source_path):
     if 'testbench.v' in files and 'makefile' in files:
         # 获取当前子文件夹的名称
         folder_name = os.path.basename(root)
-        
+
+        v_files = glob.glob(os.path.join(root, '*.v'))
+
         # 创建目标子文件夹路径
         target_folder = os.path.join(destination_path, folder_name)
         
@@ -23,7 +26,9 @@ for root, dirs, files in os.walk(source_path):
         os.makedirs(target_folder, exist_ok=True)
         
         # 复制 testbench.v 和 makefile 到目标子文件夹
-        shutil.copy(os.path.join(root, 'testbench.v'), target_folder)
+        # shutil.copy(os.path.join(root, 'testbench.v'), target_folder)
+        for v_file in v_files:
+            shutil.copy(v_file, target_folder)
         shutil.copy(os.path.join(root, 'makefile'), target_folder)
 
 print("文件夹复制完成。")
