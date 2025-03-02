@@ -1,0 +1,24 @@
+Please act as a professional verilog designer.
+
+Implement a module of a systolic array with 1x4 configuration in sequential logic.
+
+Module name:  
+    systolic1x4               
+Input ports:
+    clk: Clock signal.
+    rst: Reset signal, active high.
+    a0[15:0]: 16-bit input operand A0.
+    a1[15:0]: 16-bit input operand A1.
+    a2[15:0]: 16-bit input operand A2.
+    a3[15:0]: 16-bit input operand A3.
+    b0[15:0]: 16-bit input operand B0.
+Output ports:
+    c0[31:0]: 32-bit output representing the accumulated product of A0 and B0.
+    c1[31:0]: 32-bit output representing the accumulated product of A1 and the forwarded value of B0 (now B1).
+    c2[31:0]: 32-bit output representing the accumulated product of A2 and the forwarded value of B1 (now B2).
+    c3[31:0]: 32-bit output representing the accumulated product of A3 and the forwarded value of B2 (now B3).
+
+Implementation:
+In the systolic1x4 module, four Processing Elements (PEs) are instantiated. Each PE performs multiplication and accumulation of its inputs. The first PE (pe0) takes inputs a0 and b0 directly. The subsequent PEs take input a1, a2, and a3 respectively, each receiving a progressively delayed version of b0. Specifically, PE1 (pe1) receives b1 which is a delayed version of b0, PE2 (pe2) receives b2 which is a delayed version of b1, and PE3 (pe3) receives b3 which is a delayed version of b2. These delays are managed through registers that update with the value of the previous register each clock cycle, unless reset is active. This systolic passing of data among the PEs facilitates pipelining, crucial for maintaining throughput in larger systolic array configurations.
+
+Give me the complete code.

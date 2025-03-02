@@ -1,0 +1,47 @@
+Please act as a professional Verilog designer.
+
+Implement a parameterized modular fixed-point adder for arithmetic operations with fixed precision.
+
+Module name:
+    fixed_point_adder
+Input parameters:
+    Q: Number of fractional bits (precision).
+    N: Total number of bits, including integer and fractional parts.
+Input ports:
+    a [N-1:0]: First N-bit fixed-point input operand.
+    b [N-1:0]: Second N-bit fixed-point input operand.
+Output ports:
+    c [N-1:0]: N-bit output representing the result of the fixed-point addition.
+
+Submodules:
+fixed_point_adder_add
+Responsible for adding two fixed-point operands.
+Input ports:
+    a [N-1:0]: First N-bit fixed-point input operand.
+    b [N-1:0]: Second N-bit fixed-point input operand.
+Output ports:
+    result [N-1:0]: N-bit output representing the sum.
+    result_sign: Sign bit indicating the sign of the result.
+fixed_point_adder_sub
+Responsible for subtracting two fixed-point operands.
+Input ports:
+    a [N-1:0]: First N-bit fixed-point input operand.
+    b [N-1:0]: Second N-bit fixed-point input operand.
+Output ports:
+    result [N-1:0]: N-bit output representing the difference.
+    result_sign: Sign bit indicating the sign of the result.
+    
+Implementation:
+Addition Logic:
+If both inputs have the same sign, their absolute values are added.
+The sign of the result matches the inputs.
+Subtraction Logic:
+If the inputs have different signs, the subtraction logic determines the larger absolute value.
+The result is calculated accordingly, and the sign is set based on the comparison.
+Output Logic:
+The output is determined by the sign bits of the inputs and the results from the addition and subtraction submodules.
+The final result is ensured to fit within the N-bit range.
+Overflow Handling:
+Overflow is managed by the submodules ensuring results do not exceed the N-bit representation.
+
+Give me the complete code.

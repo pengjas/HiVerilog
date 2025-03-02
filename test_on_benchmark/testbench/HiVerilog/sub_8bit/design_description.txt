@@ -1,0 +1,19 @@
+Please act as a professional Verilog designer.
+
+Implement a module of an 8-bit subtractor that uses modular design principles.
+
+Module name:
+    sub_8bit
+
+Input ports:
+    A[7:0]: 8-bit input operand A.
+    B[7:0]: 8-bit input operand B.
+
+Output ports:
+    D[7:0]: 8-bit output representing the difference of A and B.
+    B_out: Borrow output indicating if a borrow was generated during the subtraction.
+
+Implementation:
+The top module sub_8bit generates the 2's complement of B and utilizes an adder_8bit module to perform the subtraction operation. The adder_8bit module consists of multiple instances of the full_adder module to handle the addition of each bit.
+
+Give me the complete code.

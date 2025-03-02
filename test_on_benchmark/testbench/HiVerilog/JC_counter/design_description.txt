@@ -1,0 +1,21 @@
+Please act as a professional Verilog designer.
+
+Implement a modular 64-bit Johnson counter (torsional ring counter) with the following specifications:
+
+Module name:
+    JC_counter
+
+Input ports:
+    - clk: Clock signal used for synchronous operation.
+    - rst_n: Active-low reset signal to initialize the counter.
+
+Output port:
+    - Q: 64-bit register representing the current count value.
+
+Implementation:
+The design should consist of submodules for better organization and separation of functionality.
+JC_counter: The main module that integrates the submodules.
+JC_register: A submodule responsible for storing the current state of the counter. It should reset to zero when the reset signal (rst_n) is low.
+JC_logic: A submodule that calculates the next state of the counter based on the current state. It should update the output Q based on the least significant bit (LSB) of the current state.
+
+Give me the complete code.

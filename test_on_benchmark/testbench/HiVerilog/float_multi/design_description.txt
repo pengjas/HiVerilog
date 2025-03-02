@@ -1,0 +1,38 @@
+Please act as a professional Verilog designer.
+
+Implement a module of a 32-bit floating-point multiplier for IEEE-754 standard single-precision arithmetic in a modular format. The float_multi module is designed to perform high-precision multiplication of 32-bit single-precision floating-point numbers, following the IEEE 754 standard. This module enables accurate arithmetic operations essential for various computational applications.
+
+Module Name:
+    float_multi
+
+Input Ports:
+    clk (input): Clock signal for synchronization.
+    rst (input): Reset signal (active high).
+    a (input [31:0]): First operand in IEEE 754 format.
+    b (input [31:0]): Second operand in IEEE 754 format.
+
+Output Ports:
+    z (output reg [31:0]): Result of the multiplication in IEEE 754 format.
+
+Internal Signals:
+    counter (reg [2:0]): Cycle counter for operation sequencing.
+    a_mantissa, b_mantissa (wire [23:0]): Mantissas of input numbers.
+    a_exponent, b_exponent (wire [9:0]): Exponents of input numbers.
+    a_sign, b_sign (wire): Sign bits for inputs.
+    product (wire [49:0]): Intermediate product of the mantissas.
+    guard_bit, round_bit, sticky (reg): Rounding control bits.
+    z_mantissa (wire [23:0]): Mantissa of the output.
+    z_exponent (wire [9:0]): Exponent of the output.
+    z_sign (wire): Sign bit for the output.
+    
+Implementation:
+
+Initialization: The counter is reset to zero on the rst signal.
+Input Processing: The submodule input_processing extracts the mantissas, exponents, and sign bits of inputs a and b.
+Special Cases Handling: The submodule special_case_handling identifies special cases like NaN (Not a Number) and infinity based on the inputs.
+Normalization: The normalization submodule normalizes mantissas if needed.
+Multiplication: The multiplication submodule multiplies the mantissas, combining the signs and adjusting the exponents.
+Rounding and Adjustment: The rounding_adjustment submodule rounds the result and adjusts the exponent to ensure accurate representation.
+Output Generation: The final result is formatted in IEEE 754 standard, addressing overflow and underflow scenarios.
+
+Give me the complete code.

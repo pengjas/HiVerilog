@@ -1,0 +1,20 @@
+Please act as a professional verilog designer.
+
+Implement a module of a systolic array with 1x2 configuration in sequential logic.
+
+Module name:  
+    systolic1x2               
+Input ports:
+    clk: Clock signal.
+    rst: Reset signal, active high.
+    a0[15:0]: 16-bit input operand A0.
+    a1[15:0]: 16-bit input operand A1.
+    b0[15:0]: 16-bit input operand B0.
+Output ports:
+    c0[31:0]: 32-bit output representing the accumulated product of A0 and B0.
+    c1[31:0]: 32-bit output representing the accumulated product of A1 and the forwarded value of B0 (now B1).
+
+Implementation:
+In the systolic1x2 module, two Processing Elements (PEs) are instantiated. Each PE performs multiplication and accumulation of its inputs. The first PE (pe0) takes inputs a0 and b0 directly. The second PE (pe1) takes input a1 and a delayed version of b0, named b1, which is updated with the value of b0 every clock cycle unless reset is active. This systolic passing of data (b0 to b1) among the PEs is crucial for pipelining in larger systolic array configurations.
+
+Give me the complete code.

@@ -1,0 +1,18 @@
+Please act as a professional Verilog designer.
+
+Implement a module of a systolic array with 2x2 configuration in sequential logic.
+
+Module name:
+    systolic2x2
+Input ports:
+    clk: Clock signal.
+    rst: Reset signal, active high.
+    weight[0:1][0:1]: 16-bit input operand matrix for weights.
+    inputt[0:1][0:1]: 16-bit input operand array.
+Output ports:
+    outputt[0:1][0:1]: 32-bit output array representing the accumulated product of inputs and weights.
+
+Implementation:
+In the systolic2x2 module, four Processing Elements (PEs) are instantiated. Each PE performs multiplication and accumulation of its inputs. The PEs are connected in a 2x2 grid, where each PE receives corresponding elements from the input array and weight matrix. The output of each PE is stored in the output array. This configuration allows for efficient pipelining and parallel processing of data in a systolic array.
+
+Give me the complete code.

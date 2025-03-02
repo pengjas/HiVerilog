@@ -1,0 +1,17 @@
+Please act as a professional Verilog designer.
+
+Implement a module of a borrow-lookahead 16-bit subtractor that uses the Borrow-Lookahead Subtractor (BLS) architecture.
+
+Module name:
+    sub_16bit               
+Input ports:
+    A[16:1]: 16-bit input operand A.
+    B[16:1]: 16-bit input operand B.
+Output ports:
+    D[16:1]: 16-bit output representing the difference of A and B.
+    B_out: Borrow-out output.
+
+Implementation:
+The top module sub_16bit consists of several instances of the 4-bit full subtractor block you design.
+
+Give me the complete code.

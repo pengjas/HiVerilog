@@ -1,0 +1,42 @@
+Please act as a professional Verilog designer.
+
+Implement a modular ALU for a 32-bit MIPS-ISA CPU. The inputs are the two operands a and b, and the control signal aluc selects the operation to be performed. The output r gives the result, while zero indicates if the result is zero, carry indicates if a carry occurred, negative indicates if the result is negative, overflow indicates if overflow occurred, and flag is a general flag set based on specific operations (SLT and SLTU).
+
+The supported operations and corresponding opcodes are as follows:
+
+    ADD: 6'b100000
+    ADDU: 6'b100001
+    SUB: 6'b100010
+    SUBU: 6'b100011
+    AND: 6'b100100
+    OR: 6'b100101
+    XOR: 6'b100110
+    NOR: 6'b100111
+    SLT: 6'b101010
+    SLTU: 6'b101011
+    SLL: 6'b000000
+    SRL: 6'b000010
+    SRA: 6'b000011
+    SLLV: 6'b000100
+    SRLV: 6'b000110
+    SRAV: 6'b000111
+    LUI: 6'b001111
+
+Module name:
+    alu
+Input ports:
+    a: a 32-bit input operand
+    b: a 32-bit input operand
+    aluc: a 6-bit control signal for selecting the operation to be performed
+Output ports:
+    r: a 32-bit output representing the result of the operation
+    zero: a 1-bit output indicating whether the result is zero
+    carry: a 1-bit output indicating whether a carry occurred during the operation
+    negative: a 1-bit output indicating whether the result is negative
+    overflow: a 1-bit output indicating whether an overflow occurred during the operation
+    flag: a 1-bit output representing a general flag, which is set based on specific operations (SLT and SLTU)
+    
+Implementation:
+The module is structured into submodules for different operations, such as addition, subtraction, and logical operations. Each operation is encapsulated within its module, allowing for better organization and reusability. The result is selected based on the aluc control signal using a case statement. Flags are computed similarly to the previous implementation, ensuring functionality remains consistent.
+
+Provide the complete Verilog code for this modular ALU implementation.

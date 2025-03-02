@@ -1,0 +1,18 @@
+Please act as a professional verilog designer.
+
+Implement a module of a 3-stage pipeline processor.
+
+Module name:  
+    stagepipe3               
+Input ports:
+    clk: Clock signal.
+    rst: Reset signal, active high.
+    instr_mem[0:31]: 32x32-bit memory array representing the instruction memory.
+    reg_file[0:31]: 32x32-bit array representing the register file.
+Output ports:
+    out_reg_file[31:0]: 32-bit output representing the updated value in the register file.
+
+Implementation:
+In the stagepipe3 module, three stages of a pipeline (fetch, execute, writeback) are instantiated and connected sequentially. The fetch_stage module is responsible for fetching instructions from instruction memory using a program counter (pc). It outputs the fetched instruction to the execute_stage. The execute_stage module decodes the fetched instruction and performs the necessary arithmetic operations on operands fetched from the register file. Depending on the instruction type, it performs either addition or subtraction. The result of this computation is then passed to the writeback_stage, which writes the computed value back into a specific register in the register file, completing the cycle。
+
+Give me the complete code.

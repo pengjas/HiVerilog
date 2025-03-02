@@ -1,0 +1,19 @@
+Please act as a professional Verilog designer.
+
+Implement a modular 16-bit divider module, where the dividend is 16 bits and the divisor is 8 bits in combinational logic. The module should consist of submodules, enhancing organization and reusability. The main module should handle input and output ports, while a separate control unit submodule performs the division operation.
+
+Module name:
+    div_16bit
+
+Input ports:
+    A: 16-bit dividend.
+    B: 8-bit divisor.
+    
+Output ports:
+    result: 16-bit quotient.
+    odd: 16-bit remainder.
+
+Implementation:
+The top module connects the input and output ports and instantiates a control unit. The control unit handles the division logic, initializing temporary variables, performing the division algorithm, and updating the quotient and remainder. The division process involves shifting the dividend, comparing it with the divisor, and constructing the final results.
+
+Give me the complete code.

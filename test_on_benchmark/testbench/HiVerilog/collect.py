@@ -30,5 +30,6 @@ for root, dirs, files in os.walk(source_path):
         for v_file in v_files:
             shutil.copy(v_file, target_folder)
         shutil.copy(os.path.join(root, 'makefile'), target_folder)
+        shutil.copy(os.path.join(root, 'design_description.txt'), target_folder)
 
 print("文件夹复制完成。")
